@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior League - Nova Football League</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="teams.html">Teams</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="matches.html">Matches</a></li>
+        </ul>
+    </nav>
+    <header>
+        <img src="assets/nfllogo.png" alt="Nova Football League Logo">
+    </header>
+    <main>
+        <section>
+            <h4>Senior League Table</h4>
+            <table id="miniTable">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>MP</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button onclick="window.location.href='table.html'">Full Table</button>
+        </section>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/senior-table') // Fetch Senior League table
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.querySelector('#miniTable tbody');
+                    tbody.innerHTML = '';
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${row.team}</td>
+                            <td>${row.mp}</td>
+                            <td>${row.w}</td>
+                            <td>${row.d}</td>
+                            <td>${row.l}</td>
+                            <td>${row.gd}</td>
+                            <td>${row.pts}</td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                });
+        });
+    </script>
+
+</body>
+</html>
