@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Matches</h1>
+
+        <h2>Upcoming Matches</h2>
+        <div id="upcomingMatches"></div>
+
+        <h2>Completed Matches</h2>
+        <div id="completedMatches"></div>
+    </div>
+
+    <script>
+        function fetchMatches() {
+            fetch('/api/matches')
+                .then(res => res.json())
+                .then(data => {
+                    const upcomingDiv = document.getElementById('upcomingMatches');
+                    const completedDiv = document.getElementById('completedMatches');
+
+                    upcomingDiv.innerHTML = data.upcoming.map(match => `
+                        <div class="match">
+                            <a href="matchevents.html?match=${match.id}">
+                                ${match.date} - ${match.league} <br>
+                                ${match.home} vs ${match.away}
+                            </a>
+                        </div>
+                    `).join('');
+
+                    completedDiv.innerHTML = data.completed.map(match => `
+                        <div class="match">
+                            <Link to={`/matchevents?match=${match.id}`}>  // Use React Router Link
+
+                                ${match.date} - ${match.league} <br>
+                                ${match.home} ${match.homeScore} - ${match.awayScore} ${match.away}
+                            </a>
+                        </div>
+                    `).join('');
+                });
+        }
+
+        fetchMatches();
+    </script>
+</body>
+</html>
