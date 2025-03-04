@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Standings from "./Standings";
 import Matches from "./Matches";
-import Teams from "./Teams";
+import Teams from "./teams/teams";
 import Players from "./Players";
 import Matchevents from "./Matchevents";
 import Admin from "./Admin";
