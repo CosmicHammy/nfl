@@ -3,18 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Nova Football League</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5493905150735571"
      crossorigin="anonymous"></script>
+     <link rel="icon" href="assets/favicon.svg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffa500; /* Default background color changed to orange */
+            transition: background 0.5s;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0; /* Reduced padding for smaller navbar */
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px; /* Reduced margin for smaller navbar */
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Reduced font size for smaller navbar */
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        header img {
+            width: 200px;
+            height: auto;
+        }
+        main {
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            align-items: flex-start;
+            padding: 20px;
+        }
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%; /* Reduced width of the section */
+            margin-right: 20px; /* Add margin to the right of the section */
+        }
+        table {
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            padding: 5px; /* Reduced padding for table cells */
+            border: 1px solid #ddd;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-left: 20px;
+        }
+        .button-container button {
+            margin: 10px 0;
+            padding: 10px 20px; /* Reduced padding for buttons */
+            font-size: 16px; /* Reduced font size for buttons */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <button onclick="location.href='jnr.html'">Junior</button>
-        <button onclick="location.href='snr.html'">Senior</button>
-        <button onclick="location.href='matches.html'">Matches</button>
-        <div class="ad-space">AD</div>
-        <a href="admin.html" class="admin-link">Admin</a>
+        <header>
+        <img src="assets/nfllogo.png" alt="Nova Football League Logo">
+        <h1>Welcome to Nova Football League</h1>
+        <p>Select a league:</p>
+    </header>
+    <main>
+        <button onclick="window.location.href='jnr.html'">Junior League</button>
+        <button onclick="window.location.href='snr.html'">Senior League</button>
+    </main>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const hue = Math.round(x * 360);
+            const lightness = Math.round(y * 100);
+            document.body.style.backgroundColor = `hsl(${hue}, 100%, ${lightness}%)`;
+        });
+    </script>
     </div>
 </body>
 </html>
