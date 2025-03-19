@@ -14,95 +14,74 @@
             padding: 0;
             background: #ffa500; /* Default background color changed to orange */
             transition: background 0.5s;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px 0; /* Reduced padding for smaller navbar */
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px; /* Reduced margin for smaller navbar */
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px; /* Reduced font size for smaller navbar */
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 20px 0;
         }
         header img {
             width: 200px;
             height: auto;
         }
-        main {
-            display: flex;
-            justify-content: flex-start; /* Align items to the start */
-            align-items: flex-start;
-            padding: 20px;
-        }
-        section {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 40%; /* Reduced width of the section */
-            margin-right: 20px; /* Add margin to the right of the section */
-        }
-        table {
-            width: 100%;
-            text-align: center;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            padding: 5px; /* Reduced padding for table cells */
-            border: 1px solid #ddd;
-        }
         .button-container {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            margin-left: 20px;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         .button-container button {
-            margin: 10px 0;
-            padding: 10px 20px; /* Reduced padding for buttons */
-            font-size: 16px; /* Reduced font size for buttons */
+            background: white;
+            color: #333;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .button-container button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .ad-container {
+            margin-top: 30px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-        <img src="assets/nfllogo.png" alt="Nova Football League Logo">
-        <h1>Welcome to Nova Football League</h1>
-        <p>Select a league:</p>
-    </header>
-    <main>
-        <center>
-            <button onclick="window.location.href='https://nfl3.leaguerepublic.com/'">Junior League</button>
-            <button onclick="window.location.href='https://nfljnr.leaguerepublic.com/'">Senior League</button>
-        </center>
-    </main>
-    <script>
-        document.addEventListener('mousemove', function(e) {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            const hue = Math.round(x * 360);
-            const lightness = Math.round(y * 100);
-            document.body.style.backgroundColor = `hsl(${hue}, 100%, ${lightness}%)`;
-        });
-    </script>
+            <img src="assets/nfllogo.png" alt="Nova Football League Logo">
+            <h1>Welcome to Nova Football League</h1>
+            <p>Select a league:</p>
+        </header>
+        <main>
+            <div class="button-container">
+                <button onclick="window.location.href='https://nfl3.leaguerepublic.com/'">Junior League</button>
+                <button onclick="window.location.href='https://nfljnr.leaguerepublic.com/'">Senior League</button>
+            </div>
+            
+            <!-- Google AdSense Ad -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-5493905150735571"
+                    data-ad-slot="1234567890"  <!-- Replace with real Ad Slot ID on April 5 -->
+                    data-ad-format="auto"
+                    data-full-width-responsive="true">
+                </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </main>
     </div>
 </body>
 </html>
