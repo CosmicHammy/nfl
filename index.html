@@ -84,6 +84,15 @@
     <script>
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+        <script>
+            document.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const hue = Math.round(x * 360);
+            const lightness = Math.round(y * 100);
+            document.body.style.backgroundColor = `hsl(${hue}, 100%, ${lightness}%)`;
+        });
+        </script>
     </div>
 </body>
 </html>
